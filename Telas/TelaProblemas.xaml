@@ -1,0 +1,38 @@
+﻿<Window x:Class="AmbiTroubleShooting.Telas.TelaProblemas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AmbiTroubleShooting.Telas"
+        mc:Ignorable="d"
+        Title="TelaProblemas" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="sP_TRI_LISTADEPROBLEMDataGrid" Language="pt-BR" AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="5,50,7,9" HeadersVisibility="Column" 
+                            IsReadOnly="True" PreviewKeyDown="sP_TRI_LISTADEPROBLEMDataGrid_PreviewKeyDown" AreRowDetailsFrozen="True" FontFamily="Open Sans" SelectionChanged="sP_TRI_LISTADEPROBLEMDataGrid_SelectionChanged" IsSynchronizedWithCurrentItem="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="ID_PROBLEMAColumn" Binding="{Binding ID_PROBLEMA}" Header="ID DO PROBLEMA" Width="*"/>
+                <DataGridTextColumn x:Name="DESCRICAO_PROBLEMAColumn" Binding="{Binding DESCRICAO_PROBLEMA}" Header="DESCRICAO DO PROBLEMA" Width="*"/>
+                <DataGridTextColumn x:Name="ID_PRODUTOColumn" Binding="{Binding ID_PRODUTO}" Header="ID  DO PRODUTO" Width="*"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+
+                    <EventSetter Event="Selected" Handler="Row_Click"/>
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    <Style.Triggers>
+
+
+
+
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.Resources>
+        </DataGrid>
+        <Button Content="Voltar" Click="Button_Click" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" BorderBrush="#FFFDFDFD" Background="#FF4098F0" Foreground="#FFFBFBFB" Height="35"/>
+    </Grid>
+</Window>

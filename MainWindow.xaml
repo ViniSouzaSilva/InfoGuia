@@ -1,0 +1,25 @@
+﻿<Window x:Class="AmbiTroubleShooting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AmbiTroubleShooting"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown">
+    <Grid >
+        <Border>
+            <ComboBox x:Name="cbb_Usuario" VerticalAlignment="Bottom" FontFamily="Open Sans" FontSize="20"  Margin="350,0,167,166" RenderTransformOrigin="0.5,0.5" Height="33" Grid.Column="1">
+                <ComboBoxItem Content="SUPERVISOR"/>
+            </ComboBox>
+        </Border>
+        <Border>
+            <PasswordBox x:Name="txb_Senha" VerticalContentAlignment="Center" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="20" Padding="3" Margin="350,266,167,0" Height="34" Grid.Column="1"/>
+        </Border>
+        <!--Image Margin="115,15,0,169" Source="pack://siteoforigin:,,,/Resources/logo.png"_ Stretch="Fill" Grid.RowSpan="1" RenderTransformOrigin="0.5,0.5" Grid.Column="0" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="205" IsEnabled="False" OpacityMask="#FF3B6BEA"/>-->
+        <TextBlock Margin="285,80,127,0" TextWrapping="Wrap" TextAlignment="Center" Height="106" VerticalAlignment="Top" FontFamily="Open Sans"><Run Foreground="#FF7F7F7F" FontSize="30" Text="Bem vindo"/><Run Foreground="#FF7F7F7F" FontSize="29" Text=" ao"/><LineBreak/><Run Foreground="#FF4098F0" FontSize="30" Text=""/><Run Foreground="#FF4098F0" FontWeight="Bold" FontSize="30" Text="INFOGUIDE"/></TextBlock>
+        <Border x:Name="but_entrar" Background="#FF09CAAA" MouseDown="Entrar_MouseDown" Margin="255,335,302,34">
+            <Label Content="CONFIRMAR" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF4098F0" Foreground="#FFFEFEFE" FontFamily="Open Sans" Margin="0,1,0,0" HorizontalAlignment="Left" Width="235" FontSize="14"/>
+        </Border>
+
+    </Grid>
+</Window>

@@ -1,0 +1,65 @@
+﻿<Window x:Class="AmbiTroubleShooting.Telas.TelaModelos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AmbiTroubleShooting.Telas"
+        xmlns:DataSet="clr-namespace:AmbiTroubleShooting"
+        mc:Ignorable="d"
+        Title="TelaModelos" FontSize="14" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataSet:DataSet x:Key="Dataset"/>
+        <CollectionViewSource x:Key="sP_TRI_LISTADECAIXASViewSource" Source="{Binding SP_TRI_LISTADEPRODU, Source={StaticResource Dataset}}"/>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" ></RowDefinition>
+            <RowDefinition Height="400"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="sP_TRI_LISTADEPRODUDataGrid" Language="pt-BR" AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,-69,-43" Grid.Row="1" HeadersVisibility="Column" 
+                            IsReadOnly="True" PreviewKeyDown="sP_TRI_LISTADEPRODUDataGrid_PreviewKeyDown" AreRowDetailsFrozen="True" FontFamily="Open Sans" SelectionChanged="sP_TRI_LISTADEPRODUDataGrid_SelectionChanged" IsSynchronizedWithCurrentItem="False" Height="444" VerticalAlignment="Top">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="ID_PRODUTOColumn" Binding="{Binding ID_PRODUTO}" Header="ID_PRODUTO" Width="*"/>
+                <DataGridTextColumn x:Name="MarcaColumn" Binding="{Binding MARCA}" Header="Marca" Width="*"/>
+                <DataGridTextColumn x:Name="MODELOColumn" Binding="{Binding MODELO}" Header="Modelo" Width="*"/>
+                <DataGridTextColumn x:Name="VERSAOColumn" Binding="{Binding VERSAO}" Header="Versão" Width="*"/>
+
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+
+                    <EventSetter Event="Selected" Handler="Row_Click"/>
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    <Style.Triggers>
+
+
+
+
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.Resources>
+        </DataGrid>
+
+        <Image x:Name="Imagem" Stretch="Fill" HorizontalAlignment="Right" Margin="0,69,-414,62" Grid.Row="1" Width="310">
+
+            <!--<Image.Source>
+                <BitmapImage DecodePixelWidth="200"  
+     UriSource="{Binding DisplayedImage}" />
+            </Image.Source>-->
+
+
+        </Image>
+        <Label x:Name="MsgFoto" Content="Label" HorizontalAlignment="Right" Margin="0,50,-329,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Button Content="Voltar" Click="Button_Click" HorizontalAlignment="Right" Margin="0,-1,-444,0" Grid.Row="1" Width="90" BorderBrush="#FFFDFDFD" Background="#FF4098F0" Foreground="#FFFBFBFB" Height="35" VerticalAlignment="Top"/>
+
+
+        <!--  <TextBox Grid.Row="0" Text="{Binding Path=BoundNumber, Mode=TwoWay}"/>
+        <Slider Grid.Row="1" Value="{Binding Path=BoundNumber, Mode=TwoWay}"></Slider>-->
+    </Grid>
+</Window>
